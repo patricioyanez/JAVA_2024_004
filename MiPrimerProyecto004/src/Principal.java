@@ -26,8 +26,7 @@ public class Principal {
         
         // Crear objeto
         Pizza pizza1;
-        pizza1 = new Pizza();
-        
+        pizza1 = new Pizza();        
         Pizza pizza2 = new Pizza();
         
         pizza1.nombre = "Vegetaria";

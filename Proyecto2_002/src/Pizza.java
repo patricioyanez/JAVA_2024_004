@@ -2,7 +2,6 @@
 public class Pizza {
     // atributos
     
-    
     // constructor
     
     // getter and setter

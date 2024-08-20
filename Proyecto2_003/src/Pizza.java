@@ -10,7 +10,11 @@ public class Pizza {
     // getter y setter
     public void setNombre(String nombre)
     {
-        nombre = nombre;
+        this.nombre = nombre;
+    }
+    public String getNombre()
+    {
+        return nombre;
     }
     // metodos personalizados
     

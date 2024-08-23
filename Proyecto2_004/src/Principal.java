@@ -36,5 +36,29 @@ public class Principal {
         System.out.println("Masa    : " + pizza2.getMasa());
         System.out.println("Tamano  : " + pizza2.getTamano());
         System.out.println("Precio  : " + pizza2.getPrecio());
+        
+        Pizza pizza3 = new Pizza();
+        
+        // ingresar datos al objeto
+        pizza3.setNombre("Radeo");
+        pizza3.setMasa("borde queso");
+        pizza3.setTamano("XL");
+        pizza3.setPrecio(19000);
+        
+        pizza3.imprimirDatos();
+        
+        // Ejemplo de constructores
+        // sin parametro
+        Pizza pizza4 = new Pizza();
+        pizza4.imprimirDatos();
+        // con parametro
+        Pizza pizza5 = new Pizza("Napolitana", "piedra", "personal", 8000);
+        pizza5.setPrecio(7000);
+        pizza5.imprimirDatos();
+        
+        // Ejercicio: Crear una pizza Pollo BBQ usando constructor con parametros
+        // e imprimir los datos
+     
+        // LEE ppt 1.2.1
     }
 }

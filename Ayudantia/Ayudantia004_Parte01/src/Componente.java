@@ -63,7 +63,7 @@ public class Componente {
     }
 
     public String imprimirDatos() {
-        return  "==== Datos del componente ====" + 
+        return  "\n==== Datos del componente ====" + 
                 "\nCodigo           = " + codigo + 
                 "\nMarca            = " + marca + 
                 "\nModelo           = " + modelo + 

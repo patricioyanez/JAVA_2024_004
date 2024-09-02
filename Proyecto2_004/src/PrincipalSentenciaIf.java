@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 
 
-public class PrincipalSentencias {
+public class PrincipalSentenciaIf {
     public static void main(String[] args) {
         int numero = 0;
         

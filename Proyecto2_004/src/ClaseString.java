@@ -67,6 +67,15 @@ public class ClaseString {
         
         // Ejercio 5:
         // solicitar el rut, eliminar los espacios y puntos
-        // y mostrar solo el DV. 
+        // y mostrar solo el DV.
+        
+        Scanner leerTeclado1 = new Scanner(System.in);
+        System.out.print("Ingrese su rut: ");
+        String nuevoRut = leerTeclado1.next();
+        nuevoRut = nuevoRut.replace(".", "").replace("-", "").trim();
+        int largo = nuevoRut.length();
+        nuevoRut = nuevoRut.substring(largo-1, largo);
+        System.out.println("El DV es: " + nuevoRut);
+        
     }
 }

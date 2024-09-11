@@ -41,6 +41,8 @@ public class Principal {
             {
                 System.out.println("====== Mostrar datos ======");
                 System.out.println(vehiculo.imprimirDatos());
+                
+                // Ejercicio 20: Ordenar los datos del vehiculo y cliente
             }
             else if(opcion == 3)
             {
@@ -54,6 +56,7 @@ public class Principal {
             }
             else if(opcion == 4)
             {
+                // Ejercicio 21: Mostrar correo y patente en mayúscula
                 System.out.println("====== Envio de correo ======");
                 vehiculo.enviarCorreo();
                 System.out.println("====> Correo enviado");

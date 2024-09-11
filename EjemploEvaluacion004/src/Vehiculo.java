@@ -79,7 +79,8 @@ public class Vehiculo {
     {
         String mensaje = "Hola " + getCliente().getNombre() +
                 " envio el mensaje al correo " +getCliente().getCorreo()+
-                " para indicarle que su vehiculo esta listo para retirar.";
+                " para indicarle que su vehiculo " + getPatente() +
+                " esta listo para retirar.";
         System.out.println(mensaje);
     }
     

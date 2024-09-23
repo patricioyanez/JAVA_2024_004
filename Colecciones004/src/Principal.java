@@ -54,8 +54,5 @@ public class Principal {
         System.out.println("Elementos: " + nombres.size());
     }
     
-    // Ejercicio 30: crear una clase producto con 5 atributos
-    // y agregar elementos a una colección.
-    
     
 }

@@ -20,5 +20,6 @@ public class Principal2 {
             System.out.println(aux);
         }
         
+        // LEER ppt 2.1.1.
     }
 }

@@ -1,6 +1,5 @@
-// Crear un menu que permita ingresar nombres, 
-// apellidos
-// y sus notas y otra para listarlos.
+// Crear un menu que permita ingresar nombres y apellidos
+// y sus notas (1 por persona) y otra para listarlos.
 // Solicitar los datos por teclado.
 
 

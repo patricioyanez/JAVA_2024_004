@@ -46,6 +46,7 @@ public class Principal2 {
                 }
                 System.out.println("=====> Fin");
             }
+            // leer ppt 2.1.1
         }
         
     }

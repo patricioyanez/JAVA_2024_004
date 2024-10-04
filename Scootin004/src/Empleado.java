@@ -81,7 +81,7 @@ public class Empleado {
                 "\nGenero       = " + genero + 
                 "\nAño Servicio = " + anioServicio + 
                 "\nEdad         = " + edad + 
-                "\nPuesto       = ";
+                this.puesto ;
     }
     
     

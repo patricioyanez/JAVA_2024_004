@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-
+// clase gestora
 public class Empresa {
     ArrayList<Empleado> empleados;
     

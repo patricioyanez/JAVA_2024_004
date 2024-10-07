@@ -36,6 +36,12 @@ public class Cliente extends Persona{
                 "\nTipo de Cliente = " + tipoCliente + 
                 "\nMonto de Crédito= " + montoCredito;
     }
+
+    @Override
+    public void calcularEdad() {
+        int edad = 2024 - this.getAnioNacimiento();
+        System.out.println("Estimado cliente, Ud. tiene " + edad + " años");
+    }
     
     
 }

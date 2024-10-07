@@ -37,6 +37,37 @@ public class Empleado extends Persona{
                 "\nSueldo   = " + sueldo +
                 "\nCargo    = " + cargo;
     }
+
+    // metodo sobre escrito
+    @Override
+    public void calcularEdad() {
+        int edad = 2024 - this.getAnioNacimiento();
+        System.out.println("La edad del empleado es: " + edad);
+    }
     
+    // ejemplo sobre carga
+    public void calcularSueldo()
+    {
+        System.out.println("==== Liquidación de Sueldo ====");
+        System.out.println("Sueldo Base     : " + sueldo);
+        int afp = (int)(sueldo*.1);
+        int salud = (int)(sueldo*.07);                
+        System.out.println("AFP             : " + afp);
+        System.out.println("Fonasa/Isapre   : " + salud);
+        int liquido = sueldo - (afp+salud);        
+        System.out.println("Sueldo Liquido  : " + liquido);
+    }
+    public void calcularSueldo(int descuento)
+    {
+        System.out.println("==== Liquidación de Sueldo ====");
+        System.out.println("Sueldo Base     : " + sueldo);
+        int afp = (int)(sueldo*.1);
+        int salud = (int)(sueldo*.07);                
+        System.out.println("AFP             : " + afp);
+        System.out.println("Fonasa/Isapre   : " + salud);
+        System.out.println("Descuento       : " +descuento);
+        int liquido = sueldo - (afp + salud + descuento);        
+        System.out.println("Sueldo Liquido  : " + liquido);
+    }
     
 }

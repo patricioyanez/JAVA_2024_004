@@ -59,5 +59,10 @@ public class Persona {
                 "\nCorreo           = " + correo;
     }
     
-    
+    // metodo a sobreescribir
+    public void calcularEdad()
+    {
+        int edad = 2024 - this.anioNacimiento;
+        System.out.println("La edad de la persona es: " + edad);
+    }
 }

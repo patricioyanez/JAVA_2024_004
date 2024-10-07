@@ -11,7 +11,10 @@ public class Principal {
         // tipoCliente y credito
         // crear un cliente e imprimir los datos
         
+        System.out.println("\n ====== listado de clientes =======");
+        Cliente cliente = new Cliente("Vip", 2000000, "2-7", "Juan", 2000, "afsd@email.cl");
         
+        System.out.println(cliente);
         // ppt 2.2.1
     }
     

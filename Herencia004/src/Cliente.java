@@ -1,13 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author patri
- */
-public class Cliente {
+public class Cliente extends Persona{
+    private String tipoCliente; // Vip, Platino normal
+    private int montoCredito;
+
+    public Cliente() {
+        this.tipoCliente = "normal";
+        this.montoCredito = 0;
+    }
+
+    public Cliente(String tipoCliente, int montoCredito, String rut, String nombre, int anioNacimiento, String correo) {
+        super(rut, nombre, anioNacimiento, correo);
+        this.tipoCliente = tipoCliente;
+        this.montoCredito = montoCredito;
+    }
+
+    public int getMontoCredito() {
+        return montoCredito;
+    }
+
+    public void setMontoCredito(int montoCredito) {
+        this.montoCredito = montoCredito;
+    }
+
+    public String getTipoCliente() {
+        return tipoCliente;
+    }
+
+    public void setTipoCliente(String tipoCliente) {
+        this.tipoCliente = tipoCliente;
+    }
+
+    @Override
+    public String toString() {
+        return  super.toString() +
+                "\nTipo de Cliente = " + tipoCliente + 
+                "\nMonto de Crédito= " + montoCredito;
+    }
+    
     
 }

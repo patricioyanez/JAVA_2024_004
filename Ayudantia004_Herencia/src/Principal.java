@@ -27,9 +27,9 @@ public class Principal {
      */
     public static void main(String[] args) {
         Teclado teclado1 = new Teclado(105, true, 10, "teclado español", "Genius", 5000);
-        
+        Mouse mouse1 = new Mouse(2, false, 50, "Mouse retro", "reteo", 500);
         System.out.println(teclado1);
-        
+        System.out.println(mouse1);
     }
     
 }

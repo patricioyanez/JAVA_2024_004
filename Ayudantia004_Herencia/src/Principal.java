@@ -26,7 +26,10 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Teclado teclado1 = new Teclado(105, true, 10, "teclado español", "Genius", 5000);
+        
+        System.out.println(teclado1);
+        
     }
     
 }

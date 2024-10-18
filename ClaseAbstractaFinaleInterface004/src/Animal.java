@@ -1,5 +1,5 @@
 
-public abstract class Animal {
+public abstract class Animal implements IOperaciones {
     private int cantidadOjos;
     private int cantidadPatas;
     private String sonidoQueEmite;

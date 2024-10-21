@@ -17,7 +17,7 @@ public class Principal {
         for (Animal animal : zoologico) {
             animal.mover();
             animal.guardar();
-           
+            
             if(animal instanceof Ave)
             {
                 ((Ave) animal).comer();

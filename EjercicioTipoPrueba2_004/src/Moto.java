@@ -56,5 +56,10 @@ public final class Moto extends Vehiculo {
         this.setPrecioServicioNeto((int)resultado);
     }
     
+    public void obtenerDescuento(double descuento) {
+        double resultado = this.getPrecioServicioNeto() * descuento;
+        resultado = this.getPrecioServicioNeto() - resultado;
+        this.setPrecioServicioNeto((int)resultado);
+    }
     
 }

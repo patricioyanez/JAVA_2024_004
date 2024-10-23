@@ -1,8 +1,7 @@
 
 public abstract class Vehiculo implements IOperaciones {
     private String patente;
-    private String nombre;
-    
+    private String nombre;    
     private int precioServicioNeto;
     private int iva;
     private int totalPorCobrar;

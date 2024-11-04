@@ -5,6 +5,10 @@
  */
 package vista;
 
+import controlador.ControladorMarca;
+import javax.swing.JOptionPane;
+import modelo.Marca;
+
 /**
  *
  * @author patri
@@ -63,6 +67,11 @@ public class FrmMarca extends javax.swing.JFrame {
         });
 
         btnGrabar.setText("Grabar");
+        btnGrabar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGrabarActionPerformed(evt);
+            }
+        });
 
         btnBuscar.setText("Buscar");
 
@@ -162,6 +171,33 @@ public class FrmMarca extends javax.swing.JFrame {
         chkHabilitado.setSelected(false);
         txtId.requestFocus();        
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrabarActionPerformed
+        // TODO add your handling code here:
+        
+        // validar
+        
+        // datos al objeto marca
+        Marca marca = new Marca();
+        marca.setNombre(txtNombre.getText().toUpperCase());
+        marca.setHabilitado(chkHabilitado.isSelected());
+        // controlador
+        
+        ControladorMarca cm = new ControladorMarca();
+        
+        boolean resultado = cm.agregar(marca);
+        
+        if(resultado)
+        {
+            JOptionPane.showMessageDialog(this, "Los datos fueron guardados");
+            btnLimpiar.doClick();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Los datos NO fueron guardados");
+        }
+        
+    }//GEN-LAST:event_btnGrabarActionPerformed
 
     /**
      * @param args the command line arguments

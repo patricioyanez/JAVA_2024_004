@@ -81,6 +81,11 @@ public class FrmMarca extends javax.swing.JFrame {
         });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -219,7 +224,7 @@ public class FrmMarca extends javax.swing.JFrame {
             
             if(marca == null)
             {
-                JOptionPane.showConfirmDialog(this, "Id no encontrado");
+                JOptionPane.showMessageDialog(this, "Id no encontrado");
             }
             else
             {
@@ -230,6 +235,33 @@ public class FrmMarca extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        /*  agregar codigo para eliminar una marca */
+        if(txtId.getText().trim().length() < 1)
+        {
+            JOptionPane.showMessageDialog(this, "No especificó id a buscar");
+            txtId.requestFocus();
+        }
+        else
+        {
+            int id = Integer.parseInt(txtId.getText());
+            ControladorMarca cm = new ControladorMarca();
+            
+            boolean resultado = cm.eliminar(id);
+            
+            if(resultado)
+            {
+                JOptionPane.showMessageDialog(this, "Id fue eliminado");
+                btnLimpiarActionPerformed(null);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Id NO fue eliminado");
+            }
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments

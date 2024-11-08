@@ -6,7 +6,9 @@
 package vista;
 
 import controlador.ControladorMarca;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import modelo.Marca;
 
 /**
@@ -42,6 +44,7 @@ public class FrmMarca extends javax.swing.JFrame {
         btnGrabar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        btnListar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
 
@@ -87,6 +90,13 @@ public class FrmMarca extends javax.swing.JFrame {
             }
         });
 
+        btnListar.setText("Listar");
+        btnListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarActionPerformed(evt);
+            }
+        });
+
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -124,15 +134,18 @@ public class FrmMarca extends javax.swing.JFrame {
                                     .addComponent(jLabel3))
                                 .addGap(31, 31, 31)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnBuscar))
                                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(chkHabilitado)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnLimpiar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnGrabar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnBuscar)
+                                .addGap(9, 9, 9)
+                                .addComponent(btnListar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnEliminar))))
                     .addGroup(layout.createSequentialGroup()
@@ -151,7 +164,8 @@ public class FrmMarca extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -164,8 +178,8 @@ public class FrmMarca extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiar)
                     .addComponent(btnGrabar)
-                    .addComponent(btnBuscar)
-                    .addComponent(btnEliminar))
+                    .addComponent(btnEliminar)
+                    .addComponent(btnListar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -263,6 +277,19 @@ public class FrmMarca extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
+        // TODO add your handling code here:
+        ControladorMarca cm = new ControladorMarca();
+        ArrayList<Marca> listado = cm.buscarTodo();
+        
+        DefaultTableModel dtm = (DefaultTableModel)tabla.getModel();
+        dtm.setRowCount(0);
+        
+        for (Marca m : listado) {
+            dtm.addRow(new Object[]{ m.getId(), m.getNombre(), m.isHabilitado() });
+        }
+    }//GEN-LAST:event_btnListarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -303,6 +330,7 @@ public class FrmMarca extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGrabar;
     private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnListar;
     private javax.swing.JCheckBox chkHabilitado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

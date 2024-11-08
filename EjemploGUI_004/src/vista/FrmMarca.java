@@ -105,9 +105,16 @@ public class FrmMarca extends javax.swing.JFrame {
                 "Id", "Nombre", "Habilitado"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -214,6 +221,7 @@ public class FrmMarca extends javax.swing.JFrame {
         if(resultado)
         {
             JOptionPane.showMessageDialog(this, "Los datos fueron guardados");
+            btnListarActionPerformed(null);
             btnLimpiar.doClick();
         }
         else
@@ -269,6 +277,7 @@ public class FrmMarca extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(this, "Id fue eliminado");
                 btnLimpiarActionPerformed(null);
+                btnListarActionPerformed(null);
             }
             else
             {

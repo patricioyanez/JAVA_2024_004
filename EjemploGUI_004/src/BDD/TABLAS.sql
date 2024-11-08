@@ -5,6 +5,7 @@ CREATE TABLE MARCA(
     unique(nombre)
 );
 
+-- crear CRUD para la tabla categoria
 CREATE TABLE Categoria(
     id          int             primary key auto_increment,
     nombre      varchar(100)    not null,
@@ -12,6 +13,22 @@ CREATE TABLE Categoria(
     unique(nombre)
 );
 
+-- crear CRUD para la tabla Producto
+CREATE TABLE Producto(
+    id          int primary key auto_increment,
+    idMarca     int             not null,
+    idCategoria int             not null,
+    codigo      bigint          not null,
+    descripcion varchar(100)    not null,
+    stock       int             not null,
+    precioCosto int             not null,
+    precioVenta int             not null,
+    UNIQUE(codigo),
+    FOREIGN KEY (idMarca)
+        REFERENCE Marca(id),
+    FOREIGN KEY (idCategoria)
+        REFERENCE Categoria(id)
+);
 
 
 INSERT INTO Marca (nombre, habilitado) values ('CocaCola', 1);

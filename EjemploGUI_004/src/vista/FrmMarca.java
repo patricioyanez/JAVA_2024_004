@@ -212,16 +212,29 @@ public class FrmMarca extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         // validar
-        
+        if(txtNombre.getText().trim().length() < 1)
+        {
+            JOptionPane.showMessageDialog(this, "No especificó nombre");
+            txtNombre.requestFocus();
+            return;
+        }
         // datos al objeto marca
+        
+        int id = Integer.parseInt("0" + txtId.getText());
+        
         Marca marca = new Marca();
+        marca.setId(id);
         marca.setNombre(txtNombre.getText().toUpperCase());
         marca.setHabilitado(chkHabilitado.isSelected());
         // controlador
         
         ControladorMarca cm = new ControladorMarca();
         
-        boolean resultado = cm.agregar(marca);
+        boolean resultado = false;
+        if(marca.getId() <= 0)
+            resultado = cm.agregar(marca);
+        else
+            resultado = cm.actualizar(marca);
         
         if(resultado)
         {

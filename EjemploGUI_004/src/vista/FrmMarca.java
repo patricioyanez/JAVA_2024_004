@@ -120,6 +120,11 @@ public class FrmMarca extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
             tabla.getColumnModel().getColumn(0).setResizable(false);
@@ -161,7 +166,7 @@ public class FrmMarca extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(195, 195, 195)
                         .addComponent(jLabel1)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,6 +303,18 @@ public class FrmMarca extends javax.swing.JFrame {
             dtm.addRow(new Object[]{ m.getId(), m.getNombre(), m.isHabilitado() });
         }
     }//GEN-LAST:event_btnListarActionPerformed
+
+    private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
+        // TODO add your handling code here:
+        
+        int fila = tabla.getSelectedRow();
+        
+        txtId.setText(tabla.getValueAt(fila, 0).toString());
+        txtNombre.setText(tabla.getValueAt(fila, 1).toString());
+        
+        chkHabilitado.setSelected(tabla.getValueAt(fila, 2).toString().
+                                    equals("true"));
+    }//GEN-LAST:event_tablaMouseClicked
 
     /**
      * @param args the command line arguments

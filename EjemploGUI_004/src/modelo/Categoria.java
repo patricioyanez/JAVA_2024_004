@@ -48,9 +48,6 @@ public class Categoria {
         this.id = 0;
         this.nombre = "";
         this.habilitado = false; 
-        
-            private int id;
-        this.habilitado = false;
-        this.habilitado = habilitado;
+
     }
 }

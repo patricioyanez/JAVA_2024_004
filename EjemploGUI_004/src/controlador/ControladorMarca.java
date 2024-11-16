@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Vector;
 import modelo.Marca;
 
 
@@ -108,7 +109,7 @@ public class ControladorMarca {
         try {
             Conexion con = new Conexion();
             Connection cx = con.obtenerConexion();
-            String sql = "SELECT id, nombre, habilitado FROM Marca";
+            String sql = "SELECT id, nombre, habilitado FROM Marca ORDER BY nombre";
         
             PreparedStatement ps = cx.prepareStatement(sql);            
 
@@ -129,5 +130,34 @@ public class ControladorMarca {
             System.out.println("Error: " + ex.getMessage());
         }
         return listado;
+    }
+    public javax.swing.DefaultComboBoxModel llenarComboBox()
+    {
+        Vector listado = new Vector();
+        listado.add(new Marca(0, "Seleccionar", true));
+        try {
+            Conexion con = new Conexion();
+            Connection cx = con.obtenerConexion();
+            String sql = "SELECT id, nombre, habilitado FROM Marca WHERE habilitado = 1 ORDER BY nombre";
+        
+            PreparedStatement ps = cx.prepareStatement(sql);            
+
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                Marca marca = new Marca();
+                marca.setId(rs.getInt("id"));
+                marca.setNombre(rs.getString("nombre"));
+                marca.setHabilitado(rs.getInt("habilitado")==1);
+                listado.add(marca);
+            }
+            
+            ps.close();
+            cx.close();
+        } catch (SQLException ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
+        return new javax.swing.DefaultComboBoxModel(listado);
     }
 }

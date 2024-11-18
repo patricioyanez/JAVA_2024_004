@@ -218,6 +218,18 @@ public class FrmMarca extends javax.swing.JFrame {
             txtNombre.requestFocus();
             return;
         }
+        if(!Validaciones.Validacion.soloLetras(txtNombre.getText()))
+        {
+            JOptionPane.showMessageDialog(this, "Debe ingresar solo letras");
+            txtNombre.requestFocus();
+            return;
+        }
+        if(txtNombre.getText().trim().length() > 100)
+        {
+            JOptionPane.showMessageDialog(this, "Ha excedido la cantidad de caracteres permitido");
+            txtNombre.requestFocus();
+            return; 
+        }
         // datos al objeto marca
         
         int id = Integer.parseInt("0" + txtId.getText());
@@ -254,6 +266,11 @@ public class FrmMarca extends javax.swing.JFrame {
         if(txtId.getText().trim().length() < 1)
         {
             JOptionPane.showMessageDialog(this, "No especificó id a buscar");
+            txtId.requestFocus();
+        }
+        else if(!Validaciones.Validacion.soloNumero(txtId.getText()))
+        {
+            JOptionPane.showMessageDialog(this, "El id debe contener solo números");
             txtId.requestFocus();
         }
         else

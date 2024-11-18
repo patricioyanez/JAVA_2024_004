@@ -30,4 +30,5 @@ public class Validacion {
             return false;
         return texto.matches("[a-zA-Z0-9 áéíóúÁÉÍÓÚ´Ññ]+");
     }
+    
 }

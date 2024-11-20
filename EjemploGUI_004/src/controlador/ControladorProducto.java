@@ -90,7 +90,7 @@ public class ControladorProducto {
         try {
             Conexion con = new Conexion();
             Connection cx = con.obtenerConexion();
-            String sql = "SELECT idMarca, idCategoria,codigo,descripcion,stock,precioCosto,precioVenta FROM Producto WHERE id=?";
+            String sql = "SELECT id,idMarca, idCategoria,codigo,descripcion,stock,precioCosto,precioVenta FROM Producto WHERE id=?";
         
             PreparedStatement ps = cx.prepareStatement(sql);            
             ps.setInt(1, id);
@@ -124,7 +124,7 @@ public class ControladorProducto {
         try {
             Conexion con = new Conexion();
             Connection cx = con.obtenerConexion();
-            String sql = "SELECT idMarca, idCategoria,codigo,descripcion,stock,precioCosto,precioVenta FROM Producto";
+            String sql = "SELECT id,idMarca, idCategoria,codigo,descripcion,stock,precioCosto,precioVenta FROM Producto";
         
             PreparedStatement ps = cx.prepareStatement(sql);            
 

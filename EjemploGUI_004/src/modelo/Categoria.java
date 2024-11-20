@@ -50,4 +50,10 @@ public class Categoria {
         this.habilitado = false; 
 
     }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
+    
 }

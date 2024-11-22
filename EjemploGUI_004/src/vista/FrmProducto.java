@@ -5,10 +5,12 @@
  */
 package vista;
 
+import Validaciones.Validacion;
 import controlador.ControladorCategoria;
 import controlador.ControladorMarca;
 import controlador.ControladorProducto;
 import javax.swing.JOptionPane;
+import modelo.Categoria;
 import modelo.Marca;
 import modelo.Producto;
 
@@ -344,7 +346,108 @@ public class FrmProducto extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe seleccionar una categoria.");
             cmbCategoria.requestFocus();
         }
-        
+        else if(txtCodigo.getText().trim().length() < 1)
+        {
+            JOptionPane.showMessageDialog(this, "Debe especificar Codigo.");
+            txtCodigo.requestFocus();
+        }
+        else if(!Validacion.soloNumero(txtCodigo.getText()))
+        {
+            JOptionPane.showMessageDialog(this, "Debe ingresar solo numeros");
+            txtCodigo.requestFocus();
+        }
+        else if(txtDescripcion.getText().trim().length() < 1)
+        {
+            JOptionPane.showMessageDialog(this, "Debe especificar Descripción.");
+            txtDescripcion.requestFocus();
+        }        
+        else if(!Validacion.soloLetras(txtDescripcion.getText()))
+        {
+            JOptionPane.showMessageDialog(this, "Debe ingresar solo letras");
+            txtDescripcion.requestFocus();
+        }
+        else if(txtStock.getText().trim().length() < 1)
+        {
+            JOptionPane.showMessageDialog(this, "Debe especificar el stock.");
+            txtStock.requestFocus();
+        }
+        else if(!Validacion.soloNumero(txtStock.getText()))
+        {
+            JOptionPane.showMessageDialog(this, "Debe ingresar solo numeros");
+            txtStock.requestFocus();
+        }
+        else if(txtPrecioCosto.getText().trim().length() < 1)
+        {
+            JOptionPane.showMessageDialog(this, "Debe especificar el Precio Costo.");
+            txtStock.requestFocus();
+        }
+        else if(!Validacion.soloNumero(txtPrecioCosto.getText()))
+        {
+            JOptionPane.showMessageDialog(this, "Debe ingresar solo numeros");
+            txtPrecioCosto.requestFocus();
+        }
+        else if(txtPrecioVenta.getText().trim().length() < 1)
+        {
+            JOptionPane.showMessageDialog(this, "Debe especificar el Precio Venta.");
+            txtPrecioVenta.requestFocus();
+        }
+        else if(!Validacion.soloNumero(txtPrecioVenta.getText()))
+        {
+            JOptionPane.showMessageDialog(this, "Debe ingresar solo numeros");
+            txtPrecioVenta.requestFocus();
+        }
+        else if(Integer.parseInt(txtPrecioVenta.getText()) < Integer.parseInt(txtPrecioCosto.getText()))
+        {
+            JOptionPane.showMessageDialog(this, "El precio de venta no puede ser menor al de costo");
+            txtPrecioVenta.requestFocus();
+        }
+        else
+        {
+            // crear un objeto modelo, 
+            
+            Producto producto = new Producto();
+            // traspasar los datos del form al objeto
+            int numero = Integer.parseInt("0" + txtId.getText());            
+            producto.setId(numero);
+            
+            Marca marca = (Marca)cmbMarca.getSelectedItem();
+            producto.setIdMarca(marca.getId());
+            
+            Categoria categoria = (Categoria)cmbCategoria.getSelectedItem();
+            producto.setIdCategoria(categoria.getId());
+            
+            numero = Integer.parseInt("0" + txtCodigo.getText());
+            producto.setCodigo(numero);
+            
+            producto.setDescripcion(txtDescripcion.getText());
+            
+            numero = Integer.parseInt("0" + txtStock.getText());
+            producto.setStock(numero);
+            numero = Integer.parseInt("0" + txtPrecioCosto.getText());
+            producto.setPrecioCosto(numero);
+            numero = Integer.parseInt("0" + txtPrecioVenta.getText());
+            producto.setPrecioVenta(numero);
+            
+            // instanciar al controlador
+            ControladorProducto controlador = new ControladorProducto();
+            // entregar el modelo al controlador y esperar respuesta.
+            boolean resultado = false;
+            if(producto.getId() <= 0)
+                resultado = controlador.agregar(producto);
+            else
+                resultado = controlador.actualizar(producto);
+            
+            if(resultado)
+            {
+                JOptionPane.showMessageDialog(this, "Los datos fueron guardados");
+                //btnListarActionPerformed(null);
+                btnLimpiarActionPerformed(null);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Los datos NO fueron guardados");
+            }
+        }
         
         
     }//GEN-LAST:event_btnGrabarActionPerformed

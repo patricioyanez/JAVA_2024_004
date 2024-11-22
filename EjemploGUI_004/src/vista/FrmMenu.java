@@ -5,6 +5,8 @@
  */
 package vista;
 
+import controlador.ControladorCategoria;
+
 /**
  *
  * @author patri
@@ -16,6 +18,7 @@ public class FrmMenu extends javax.swing.JFrame {
      */
     public FrmMenu() {
         initComponents();
+        
     }
 
     /**

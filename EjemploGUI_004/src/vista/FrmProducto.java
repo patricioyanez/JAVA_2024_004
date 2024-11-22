@@ -108,6 +108,11 @@ public class FrmProducto extends javax.swing.JFrame {
 
         btnEliminar.setBackground(new java.awt.Color(255, 255, 102));
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnListar.setBackground(new java.awt.Color(0, 102, 0));
         btnListar.setForeground(new java.awt.Color(255, 255, 255));
@@ -116,6 +121,11 @@ public class FrmProducto extends javax.swing.JFrame {
         btnGrabar.setBackground(new java.awt.Color(255, 0, 0));
         btnGrabar.setForeground(new java.awt.Color(255, 255, 255));
         btnGrabar.setText("Grabar");
+        btnGrabar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGrabarActionPerformed(evt);
+            }
+        });
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -285,9 +295,59 @@ public class FrmProducto extends javax.swing.JFrame {
                 txtPrecioVenta.setText("" + producto.getPrecioVenta());
             }
         }
-        
-        
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        if(txtId.getText().trim().length() < 1)
+        {
+            JOptionPane.showMessageDialog(this, "No especificó id a buscar");
+            txtId.requestFocus();
+        }
+        else if(!Validaciones.Validacion.soloNumero(txtId.getText()))
+        {
+            JOptionPane.showMessageDialog(this, "El id debe contener solo números");
+            txtId.requestFocus();
+        }
+        else
+        {
+            int id = Integer.parseInt(txtId.getText());
+            ControladorProducto cp = new ControladorProducto();
+            
+            boolean respuesta = cp.eliminar(id);
+            
+            
+            if(respuesta)
+            {
+                JOptionPane.showMessageDialog(this, "Id fue eliminado.");
+                btnLimpiarActionPerformed(null);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Id no fue encontrado.");
+                txtId.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrabarActionPerformed
+        // TODO add your handling code here:
+        
+        // validar
+        if(cmbMarca.getSelectedIndex() == 0)
+        {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar una marca.");
+            cmbMarca.requestFocus();
+        }
+        else if(cmbCategoria.getSelectedIndex() == 0)
+        {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar una categoria.");
+            cmbCategoria.requestFocus();
+        }
+        
+        
+        
+    }//GEN-LAST:event_btnGrabarActionPerformed
 
     public void seleccionarPorId(javax.swing.JComboBox<?> comboBox, int id){
         javax.swing.DefaultComboBoxModel<?> model = (javax.swing.DefaultComboBoxModel<?>) comboBox.getModel();

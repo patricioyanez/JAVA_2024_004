@@ -39,6 +39,11 @@ public class Mecanico {
     public void setRut(String rut) {
         this.rut = rut;
     }
+
+    @Override
+    public String toString() {
+        return "Mecanico{" + "rut=" + rut + ", nombre=" + nombre + '}';
+    }
     
     
 }

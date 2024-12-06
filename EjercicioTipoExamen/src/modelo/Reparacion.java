@@ -12,7 +12,7 @@ package modelo;
 public class Reparacion {
     private int numeroOrden;
     private Mecanico mecanico; // quien realiza la reparacion
-    private Vehiculo vehiculo;
+    private Vehiculo vehiculo; // que vehiculo se repara
     private String comentario;
 
     public Reparacion() {
